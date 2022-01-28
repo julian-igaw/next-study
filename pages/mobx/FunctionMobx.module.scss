@@ -1,0 +1,30 @@
+//.button {
+//  background-color: #f2eaea;
+//  padding: .5rem 1rem;
+//  border-radius: .5rem;
+//  font-size: 1.2rem;
+//  &.minus {
+//    color: red;
+//  }
+//  &.plus {
+//    color: blue;
+//  }
+//}
+
+@mixin button {
+  background-color: #f2eaea;
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+  font-size: 1.2rem;
+}
+.minus {
+  @include button;
+  color: red;
+}
+.plus {
+  @include button;
+  color: blue;
+}
+.area {
+  margin: 0 1rem;
+}

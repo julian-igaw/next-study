@@ -1,0 +1,30 @@
+.app {
+  padding: 1rem;
+  > .header {
+    height: 5rem;
+    background-color: black;
+    padding: 1rem;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  > .wrapper {
+    display: flex;
+    > .nav {
+      flex: 1;
+    }
+    > .contents {
+      flex: 3;
+      padding: 1rem;
+      background-color: white;
+      border-left: 1px solid silver;
+    }
+  }
+  > .footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 3rem;
+  }
+}

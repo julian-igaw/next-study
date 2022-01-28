@@ -1,0 +1,18 @@
+.user-custom-css {
+  > .blue {
+    background-color: blue;
+    color: white;
+  }
+  > .yellow {
+    background-color: yellow;
+    color: black;
+  }
+  .primary {
+    color: white;
+    background-color: blue;
+  }
+  .another {
+    color: black;
+    background-color: yellow;
+  }
+}
