@@ -9,7 +9,7 @@ export default class RootStore {
     public count = 0
 
     constructor() {
-        makeObservable(this);
+        makeObservable(this); // 반드시 필요
     }
     @action
     public increaseCounter = () => {

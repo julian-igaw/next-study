@@ -25,7 +25,7 @@ export async function getStaticPaths(ctx:any) {
     const paths = posts.map((poster) => ({
         params: { post: `${poster.id}` },
     }))
-    console.log('Paths and ctx',paths, ctx)
+    console.log('Paths and ctx',paths,'ctx', ctx)
     return { paths, fallback: false }
 }
 //

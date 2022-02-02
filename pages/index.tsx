@@ -1,12 +1,6 @@
-import type {NextPage} from 'next'
-import Link from 'next/link'
 import React, {Component} from 'react';
 import {inject, observer} from "mobx-react";
 import RootStore from "../store/RootStore";
-import FunctionMobx from "./mobx/FunctionMobx";
-import Header from "./Header";
-import {Head} from "next/document";
-import Nav from "./Nav";
 
 interface StoreProps {
     rootStore: RootStore;

@@ -8,8 +8,9 @@ const DTest = () => {
     console.log('router query ?? ', router.query);
 
     return <div>
-        <p>dynamic route test page</p>
+        <h1>dynamic route test page</h1>
         <p>입력 받은 DTest 경로:{DTest}</p>
+        <p>router.query의 값 :: {JSON.stringify(router.query)}</p>
     </div>
 
 }
