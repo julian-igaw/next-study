@@ -11,13 +11,22 @@ const ServerDataPath = (props:any)  => {
 
 
 export async function getServerSideProps(ctx:any) {
-    const res = await fetch('http://localhost:3000/api/testAPI')
-    const posts:string = await res.text()
-    console.log('posts!!!!',JSON.parse(posts).text,'ctx:::::::',ctx.query)
-    return {
-        props: {
-            posts,
-        },
+    try {
+        const res = await fetch('http://localhost:3000/api/testAPI')
+        const posts:string = await res.text()
+        console.log('try CATCH')
+        return {
+            props: {
+                posts,
+            },
+        }
+    } catch (error) {
+        const posts:string = 'error NO DATA'
+        return {
+            props: {
+                posts,
+            },
+        }
     }
 }
 

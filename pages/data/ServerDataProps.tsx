@@ -42,13 +42,21 @@ const ServerDataProps = ({posts}: InferGetStaticPropsType<typeof getServerSidePr
 // 타입 :: InferGetServerSidePropsType<typeof getServerSideProps>
 
 export async function getServerSideProps(ctx:any) {
-    const res = await fetch('http://localhost:3000/api/testAPI')
-    const posts:string = await res.text()
-    console.log('posts!!!!',posts,'ctx:::::::',ctx.query)
-    return {
-        props: {
-            posts,
-        },
+    try {
+        const res = await fetch('http://localhost:3000/api/testAPI')
+        const posts:string = await res.text()
+        return {
+            props: {
+                posts,
+            },
+        }
+    } catch (error) {
+        const posts:string = 'error NO DATA'
+        return {
+            props: {
+                posts,
+            },
+        }
     }
 }
 

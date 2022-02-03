@@ -3,24 +3,19 @@ import React, {Component} from 'react';
 class ServerDataPropsClass extends React.Component<any, any> {
 
     componentDidMount() {
-        this.callAPI()
+        // this.callAPI()
     }
 
-    // static async getStaticProps() {
-    //     const res = await fetch('http://localhost:3001/testAPI')
-    //     const posts:string = await res.text()
-    //     return{post:posts}
+
+    // private callAPI = () => {
+    //     fetch("http://localhost:3000/api/testAPI", {
+    //         // mode:'no-cors',
+    //         // contentType:'text/plain'
+    //     }).then(res => {
+    //         console.log("@@",res)
+    //         return res.text()
+    //     }).then(res => this.complete(res)).catch(reason => console.log('err',reason))
     // }
-
-    private callAPI = () => {
-        fetch("http://localhost:3000/api/testAPI", {
-            // mode:'no-cors',
-            // contentType:'text/plain'
-        }).then(res => {
-            console.log("@@",res)
-            return res.text()
-        }).then(res => this.complete(res)).catch(reason => console.log('err',reason))
-    }
 
     private complete = (res:any) => {
         console.log("RESPONSE:::::",res)
@@ -39,16 +34,22 @@ class ServerDataPropsClass extends React.Component<any, any> {
 
 
 export async function getStaticProps() {
-    // Call an external API endpoint to get posts
-    const res = await fetch('http://localhost:3000/api/testAPI')
-    const posts:string = await res.text()
-    console.log('posts!!!!',posts)
-    // By returning { props: { posts } }, the Blog component
-    // will receive `posts` as a prop at build time
-    return {
-        props: {
-            posts,
-        },
+    try {
+        const res = await fetch('http://localhost:3000/api/testAPI')
+        const posts:string = await res.text()
+        console.log('try CATCH')
+        return {
+            props: {
+                posts,
+            },
+        }
+    } catch (error) {
+        const posts:string = 'error NO DATA'
+        return {
+            props: {
+                posts,
+            },
+        }
     }
 }
 
