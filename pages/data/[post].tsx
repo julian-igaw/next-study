@@ -11,12 +11,7 @@ const Post = ({posts}:any) => {
     return <div>
         <h2>getStaticPath TEST::::::::</h2>
         <p>입력 받은 경로:{post}</p>
-        <p>서버 메시지 :: {posts}</p>
-        {/*<ul>*/}
-        {/*    {posts.map((post:any) => (*/}
-        {/*        <li>{post.title}</li>*/}
-        {/*    ))}*/}
-        {/*</ul>*/}
+        <p>서버 메시지 :: {JSON.parse(posts).text}</p>
     </div>
 }
 
@@ -32,7 +27,7 @@ export async function getStaticPaths(ctx:any) {
 export async function getStaticProps({ params }:any) {
     // params contains the post `id`.
     // If the route is like /posts/1, then params.id is 1
-    const res = await fetch(`http://localhost:3001/testAPI/${params.post}`)
+    const res = await fetch(`http://localhost:3000/api/${params.post}`)
     const posts = await res.text()
     console.log('param and response',params.post, posts)
     // Pass post data to the page via props

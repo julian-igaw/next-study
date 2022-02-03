@@ -9,7 +9,7 @@ const ServerDataProps = ({posts}: InferGetStaticPropsType<typeof getServerSidePr
     // console.log('posts',posts)
     return <div>
         <h2>이곳은 서버에서 받아온 외부 데이터를 보여줍니다.</h2>
-        <div>{posts}</div>
+        <div>{JSON.parse(posts).text}</div>
     </div>
 }
 
@@ -24,7 +24,7 @@ const ServerDataProps = ({posts}: InferGetStaticPropsType<typeof getServerSidePr
 // This function gets called at build time
 // export async function getStaticProps() {
 //     // Call an external API endpoint to get posts
-//     const res = await fetch('http://localhost:3001/testAPI')
+//     const res = await fetch('http://localhost:3000/api/testAPI')
 //     const posts: string = await res.text()
 //     console.log('posts!!!!', posts)
 //     // By returning { props: { posts } }, the Blog component
@@ -42,7 +42,7 @@ const ServerDataProps = ({posts}: InferGetStaticPropsType<typeof getServerSidePr
 // 타입 :: InferGetServerSidePropsType<typeof getServerSideProps>
 
 export async function getServerSideProps(ctx:any) {
-    const res = await fetch('http://localhost:3001/testAPI')
+    const res = await fetch('http://localhost:3000/api/testAPI')
     const posts:string = await res.text()
     console.log('posts!!!!',posts,'ctx:::::::',ctx.query)
     return {

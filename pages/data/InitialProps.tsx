@@ -1,14 +1,13 @@
 function InitialProps (props:any) {
 
-    console.log('!@#!@#::',props)
     return <div>
-        <p>getInitial::: {props.text}</p>
+        <p>getInitial::: {JSON.parse(props.text).text}</p>
     </div>
 }
 
 // prototype 형식으로 작성
 InitialProps.getInitialProps = async ({ctx}:any) => {
-    const res = await fetch('http://localhost:3001/testAPI')
+    const res = await fetch('http://localhost:3000/api/testAPI')
     const posts: string = await res.text()
     console.log('posts!!!!', posts,ctx)
     return {text:posts}

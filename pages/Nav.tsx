@@ -5,7 +5,6 @@ const Nav = () => {
     return <div className={'nav'}>
         <div>
             <h1>Data SSR</h1>
-            <p>첫 렌더시 데이터 불러와 SEO 가능</p>
             <ul>
                 <li><Link href={"/data/ServerDataProps"}><a>ServerDataProps</a></Link></li>
                 <li><Link href={"/data/ServerDataPropsClass"}><a>ServerDataPropsClass</a></Link></li>

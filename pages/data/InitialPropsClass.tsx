@@ -6,7 +6,7 @@ interface InitialPropsClassProps {
 
 export default class InitialPropsClass extends React.Component<InitialPropsClassProps, any> {
     static async getInitialProps({ctx}:any) {
-        const res = await fetch('http://localhost:3001/testAPI')
+        const res = await fetch('http://localhost:3000/api/testAPI')
         const posts: string = await res.text()
         return {text:posts}
     }
@@ -15,7 +15,7 @@ export default class InitialPropsClass extends React.Component<InitialPropsClass
         console.log('TEXT:::',this.props)
         return (
             <div>
-                <p>Response is:::: {this.props.text}</p>
+                <p>Response is:::: {JSON.parse(this.props.text).text}</p>
             </div>
         );
     }
