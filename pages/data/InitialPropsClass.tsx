@@ -11,7 +11,7 @@ export default class InitialPropsClass extends React.Component<InitialPropsClass
             const posts: string = await res.text()
             return {text:posts}
         }catch (error) {
-            const posts: string = 'error NO DATA'
+            const posts: string = "error NO DATA"
             return {text:posts}
         }
     }

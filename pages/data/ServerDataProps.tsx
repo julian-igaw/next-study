@@ -51,7 +51,7 @@ export async function getServerSideProps(ctx:any) {
             },
         }
     } catch (error) {
-        const posts:string = 'error NO DATA'
+        const posts:string = "error NO DATA"
         return {
             props: {
                 posts,

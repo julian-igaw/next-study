@@ -30,7 +30,7 @@ export async function getStaticProps({ params }:any) {
         const posts = await res.text()
         return { props: { posts } }
     } catch (error) {
-        const posts = 'error NO DATA'
+        const posts = "error NO DATA"
         return { props: { posts } }
     }
 }

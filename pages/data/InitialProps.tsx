@@ -12,7 +12,7 @@ InitialProps.getInitialProps = async ({ctx}:any) => {
         const posts: string = await res.text()
         return {text:posts}
     } catch (error) {
-        const posts: string = 'error NO DATA'
+        const posts: string = "error NO DATA"
         return {text:posts}
     }
 }
