@@ -28,9 +28,10 @@ export async function getStaticProps({ params }:any) {
     try {
         const res = await fetch(`http://localhost:3000/api/${params.post}`)
         const posts = await res.text()
+        console.log('what is post ::',posts)
         return { props: { posts } }
     } catch (error) {
-        const posts = "error NO DATA"
+        const posts = '{"text":"no DATA"}'
         return { props: { posts } }
     }
 }
