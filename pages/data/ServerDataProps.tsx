@@ -5,11 +5,12 @@ interface ServerProps {
     text:string
 }
 // InferGetStaticPropsType<typeof getServerSideProps>
-const ServerDataProps = ({posts}: any) => {
+function ServerDataProps  (props: any) {
     // console.log('posts',posts)
     return <div>
         <h2>이곳은 서버에서 받아온 외부 데이터를 보여줍니다.</h2>
-        {/*<div>{JSON.parse(posts).text}</div>*/}
+        <div>{JSON.parse(props.posts).text}</div>
+        {/*<div>{props.posts}</div>*/}
     </div>
 }
 
@@ -65,17 +66,14 @@ ServerDataProps.getInitialProps = async (ctx:any) => {
         const res = await fetch('http://localhost:3000/api/testAPI')
         const posts:string = await res.text()
         console.log('try CATCH')
+        console.log('posts::::',posts)
         return {
-            props: {
-                posts,
-            },
+            posts
         }
     } catch (error) {
         const posts:string = '{"text":"no DATA"}'
         return {
-            props: {
-                posts,
-            },
+            posts
         }
     }
 
