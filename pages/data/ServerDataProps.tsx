@@ -9,7 +9,7 @@ const ServerDataProps = ({posts}: any) => {
     // console.log('posts',posts)
     return <div>
         <h2>이곳은 서버에서 받아온 외부 데이터를 보여줍니다.</h2>
-        <div>{JSON.parse(posts).text}</div>
+        {/*<div>{JSON.parse(posts).text}</div>*/}
     </div>
 }
 

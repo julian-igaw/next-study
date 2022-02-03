@@ -5,7 +5,7 @@ const ServerDataPath = (props:any)  => {
         <h2>page Props를 가져옵니다.</h2>
         <p>{JSON.stringify(props)}</p>
         <h2>서버 데이터도 가져옵니다.</h2>
-        <p>{JSON.parse(props.posts).text}</p>
+        {/*<p>{JSON.parse(props.posts).text}</p>*/}
     </div>
 }
 
