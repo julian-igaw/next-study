@@ -10,7 +10,7 @@ const ServerDataPath = (props:any)  => {
 }
 
 
-export async function getServerSideProps(ctx:any) {
+ServerDataPath.getInitialProps = async (ctx:any) => {
     try {
         const res = await fetch('http://localhost:3000/api/testAPI')
         const posts:string = await res.text()
