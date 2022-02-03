@@ -6,9 +6,14 @@ interface InitialPropsClassProps {
 
 export default class InitialPropsClass extends React.Component<InitialPropsClassProps, any> {
     static async getInitialProps({ctx}:any) {
-        const res = await fetch('http://localhost:3000/api/testAPI')
-        const posts: string = await res.text()
-        return {text:posts}
+        try {
+            const res = await fetch('http://localhost:3000/api/testAPI')
+            const posts: string = await res.text()
+            return {text:posts}
+        }catch (error) {
+            const posts: string = 'error NO DATA'
+            return {text:posts}
+        }
     }
 
     render() {

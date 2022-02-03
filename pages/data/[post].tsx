@@ -23,15 +23,16 @@ export async function getStaticPaths(ctx:any) {
     console.log('Paths and ctx',paths,'ctx', ctx)
     return { paths, fallback: false }
 }
-//
+
 export async function getStaticProps({ params }:any) {
-    // params contains the post `id`.
-    // If the route is like /posts/1, then params.id is 1
-    const res = await fetch(`http://localhost:3000/api/${params.post}`)
-    const posts = await res.text()
-    console.log('param and response',params.post, posts)
-    // Pass post data to the page via props
-    return { props: { posts } }
+    try {
+        const res = await fetch(`http://localhost:3000/api/${params.post}`)
+        const posts = await res.text()
+        return { props: { posts } }
+    } catch (error) {
+        const posts = 'error NO DATA'
+        return { props: { posts } }
+    }
 }
 
 

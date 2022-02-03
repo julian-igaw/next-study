@@ -7,10 +7,14 @@ function InitialProps (props:any) {
 
 // prototype 형식으로 작성
 InitialProps.getInitialProps = async ({ctx}:any) => {
-    const res = await fetch('http://localhost:3000/api/testAPI')
-    const posts: string = await res.text()
-    console.log('posts!!!!', posts,ctx)
-    return {text:posts}
+    try {
+        const res = await fetch('http://localhost:3000/api/testAPI')
+        const posts: string = await res.text()
+        return {text:posts}
+    } catch (error) {
+        const posts: string = 'error NO DATA'
+        return {text:posts}
+    }
 }
 
 // Next 9.3버전 이전엔 getInitialProps만으로 데이터 패치를 전부 해결했지만,
