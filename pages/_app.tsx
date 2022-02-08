@@ -11,6 +11,7 @@ import Footer from "./Footer";
 const rootStore = new RootStore()
 
 function MyApp({ Component, pageProps }: AppProps) {
+  console.log('#################render _app.tsx')
   return <div className="app">
     <Header/>
     <div className={'wrapper'}>
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 MyApp.getInitialProps = async ({ Component, ctx }:any) => {
+  console.log('#############render GetInitialProps')
   let pageProps = {};
   // 하위 컴포넌트에 getInitialProps가 있다면 추가 (각 개별 컴포넌트에서 사용할 값 추가)
   if (Component.getInitialProps) {

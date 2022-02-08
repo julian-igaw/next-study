@@ -16,6 +16,7 @@ const Post = ({posts}:any) => {
 }
 
 export async function getStaticPaths(ctx:any) {
+    console.log('#################render staticPaTH')
     const posts = [{id:'11'},{id:'aa'}]
     const paths = posts.map((poster) => ({
         params: { post: `${poster.id}` },
@@ -25,6 +26,7 @@ export async function getStaticPaths(ctx:any) {
 }
 
 export async function getStaticProps({ params }:any) {
+    console.log('#################render STATIC props')
     try {
         const res = await fetch(`http://localhost:3000/api/${params.post}`)
         const posts = await res.text()
